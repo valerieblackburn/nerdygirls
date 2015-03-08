@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body" viewBox="0 0 180 180" xml:space="preserve" onload="init(evt)">
+	<script xlink:href="logo_cube_3d_data/svg3d.js"/>
+	<script type="text/ecmascript"><![CDATA[
+
+	var _focalDistance = 400;
+	//the bigger it is, the less the z length is deformed
+	var _deformingDistance = 1400;
+	
+	var _xOrigin = 90;
+    var _yOrigin = 90;
+    
+	var axeArray = new Array();
+    var faceArray = new Array();
+    var textArray = new Array();
+    
+	var rotationX = 0;
+	var rotationY = 0;
+	var rotationZ = 0;
+	
+	var angle = Math.PI / 2;
+	var dpi = 2*Math.PI;
+	var size = 180;
+	
+    var rotationTime = 150;
+	var clockRotation;
+	
+	function init(evt) {
+		faceArray[0] = new Path('face0');
+		faceArray[1] = new Path('face1');
+		faceArray[2] = new Path('face2');
+		faceArray[3] = new Path('face3');
+		faceArray[4] = new Path('face4');
+		faceArray[5] = new Path('face5');
+		
+		textArray[0] = new Path('text_face0');
+		textArray[1] = new Path('text_face1');
+		textArray[2] = new Path('text_face2');
+		textArray[3] = new Path('text_face3');
+		textArray[4] = new Path('text_face4');
+		textArray[5] = new Path('text_face5');
+		
+		clockRotation = window.setInterval("rotateCube()", rotationTime);
+	}
+	
+	function toggleRotation() {
+		if (!clockRotation) {
+			clockRotation = window.setInterval("rotateCube()", rotationTime);
+		} else {
+			clockRotation = window.clearInterval(clockRotation);
+		}
+	}
+	
+	function rotateCube() {
+		var i;
+		for (i in faceArray) {
+			applyTransform(i,faceArray[i]);
+		}
+		sortFaces()
+		incrementRotation(0.07,0.03,0.02);
+	}
+	
+	function sortFaces() {
+		//will contain the index of the faces in the order they have to be displayed
+		var indexPathsSorted = sortZ(faceArray);
+		var parentNode = faceArray[0].domNode.parentNode;
+		for (i in indexPathsSorted) {
+			var index = indexPathsSorted[i];
+			if (i > 2) {
+				//no need to remove child before
+				parentNode.appendChild(faceArray[index].domNode);
+				
+				applyTransform(index,textArray[index]);
+				parentNode.appendChild(textArray[index].domNode);
+				
+				faceArray[index].domNode.style.display = "";
+				textArray[index].domNode.style.display = "";
+			} else {
+				faceArray[index].domNode.style.display = "none";
+				textArray[index].domNode.style.display = "none";
+			}
+		}
+	}
+	
+	function applyTransform(index,face) {
+		var matrixArray = new Array();
+		//is applied to everything
+		matrixArray[0] = setAnglesRotationMatrix(rotationX,rotationY,rotationZ);
+		if (index == 0) {
+			matrixArray[1] = setTranslationMatrix(0,0,-size);
+		} else if (index == 1) {
+			matrixArray[1] = setTranslationMatrix(0,-size,0);
+			matrixArray[2] = setRotationMatrix(0,-1,1,0,1,0);
+		} else if (index == 2) {
+			matrixArray[1] = setTranslationMatrix(-size,0,0);
+			matrixArray[2] = setRotationMatrix(1,0,0,-1,1,0);
+		} else if (index == 3) {
+			matrixArray[1] = setTranslationMatrix(0,0,size);
+		} else if (index == 4) {
+			matrixArray[1] = setTranslationMatrix(0,size,0);
+			matrixArray[2] = setRotationMatrix(0,-1,1,0,1,0);
+		} else if (index == 5) {
+			matrixArray[1] = setTranslationMatrix(size,0,0);
+			matrixArray[2] = setRotationMatrix(1,0,0,-1,1,0);
+		}
+		transformPath(face,matrixArray);
+	}
+	
+	function incrementRotation(incRotX,incRotY,incRotZ) {
+		rotationX += incRotX;
+		if (rotationX > dpi) {
+			rotationX -= dpi;
+		}		
+		rotationY += incRotY;
+		if (rotationY > dpi) {
+			rotationY -= dpi;
+		}
+		rotationZ += incRotZ;
+		if (rotationZ > dpi) {
+			rotationZ -= dpi;
+		}
+	}
+	
+	
+]]></script>
+	<title>SVG Animation - Cube Demonstration</title>
+	
+	<g id="g2" onclick="toggleRotation()">
+		
+		<!-- x 20,20 40,100 30,60 20,100 40,20 -->
+		<!-- html -->
+		
+		
+		
+		<!-- xml -->
+		
+		
+		
+		<!-- rng -->
+		
+		
+		
+		<!-- xsd -->
+		
+		
+		
+		<!-- svg -->
+		
+		
+		
+		<!-- xsl -->
+		
+		
+		
+	<path id="face2" style="fill: yellow; display: none;" d="M30.795572814977653,120.50070230737674L40.470147622750716,159.35488085263904L149.6976052411623,159.06233099605447L118.21995527795833,122.29307753750345z"/><path id="text_face2" style="fill: none; stroke-width: 2px; stroke: black; display: none;" d="M137.88144023375705,55.708885117025346 L138.55033817254977,118.97192317600101 C140.58574535172477,121.62532476175869 140.24483628822668,88.50801141850734 138.21735417319127,87.47895810203538 L139.48021141975505,55.21420958186887 M139.90077094797877,55.08408432597781 L140.58574535172477,121.62532476175869 L141.67466145087462,54.535225151185244 L142.37223017541146,123.95422568762828 M144.56907959293193,99.819040409202 C143.05657469614852,192.05721107261985 140.96348146808717,-16.238308509472546 144.39093350967312,81.47292356261858 L143.37665300701647,81.16326139761719"/><path id="face0" style="fill: red; display: none;" d="M30.795572814977653,120.50070230737674L36.908502802230515,28.580073057599485L128.89787914768905,35.53269100903888L118.21995527795833,122.29307753750345z"/><path id="text_face0" style="fill: none; stroke-width: 2px; stroke: black; display: none;" d="M146.9017857866474,138.0659378005582L146.76031088264165,124.85146474315253L137.25591617305474,84.35081099229663 M146.72379145312925,121.44036493888044L137.1701112223351,81.14533790721354L141.489237230816,93.17790176235741L136.75645817884498,65.69222376462193L146.546886711679,104.91656549862029 M136.72604848645094,64.55618849302971L136.35167328598027,50.5704030719509 M136.54107381352281,57.645965591901295L146.45421322217106,96.2603918906938 M136.25526338898425,46.96875389711403L146.33063883494748,84.71791782416503 M140.92725397124087,64.47318728534128L140.62392148792674,48.979714522970056 M135.85773429508322,32.11799295209052L146.15761599985507,68.55670811200523"/><path id="face4" style="fill: limegreen; display: none;" d="M118.21995527795833,122.29307753750345L128.89787914768905,35.53269100903888L165.56192673256442,51.07230586254526L149.6976052411623,159.06233099605447z"/><path id="text_face4" style="fill: none; stroke-width: 2px; stroke: black; display: none;" d="M138.2961852801673,122.92743854689706L137.17796304145878,130.82753905329065C145.16945210669064,154.34594141455204 136.28562252955203,79.62454114880254 136.6027629194638,124.27922177802796 M138.35780371153004,97.05354270463873L142.4035540051431,111.99756759645672L140.44434111699763,82.00026591350904 M141.33318399043938,80.40608164499272C142.8824097782894,55.167804871431464 145.2114179286563,65.63034215027955 143.66782540649405,79.34776539716525C142.12323845940531,93.07402578689016 144.65640697438408,109.78243263531371 146.34851938676962,78.13258006923026"/><path id="face1" style="fill: royalblue;" d="M30.795572814977653,120.50070230737674L36.908502802230515,28.580073057599485L49.13469549768055,43.236408991837116L40.470147622750716,159.35488085263904z"/><path id="text_face1" style="fill: none; stroke-width: 2px; stroke: black;" d="M33.127873278937976,110.67452085555824L41.083416659718225,116.10817859814144 M39.77929670174891,133.98854002928834L34.16818313930448,95.28055317165675 M41.414205231524754,111.57284487745882L34.43147842047767,91.38444567126659L38.22678480221505,92.19550767319298L35.49782032530411,75.60526924674909L42.7568998252285,93.1635992552592 M35.76774545815105,71.61105662758325L43.09754537794175,88.4931196991378L44.48055178981919,69.53117194667212"/><path id="face5" style="fill: white;" d="M36.908502802230515,28.580073057599485L49.13469549768055,43.236408991837116L165.56192673256442,51.07230586254526L128.89787914768905,35.53269100903888z"/><path id="text_face5" style="fill: none; stroke-width: 2px; stroke: black;" d="M117.21835430426559,35.800819271366066L121.91577138126397,37.99326469725203L56.823438078866,33.19617496493079 M65.95440549181045,34.37062573057753C42.57048385424975,35.36745964791263 91.63776545327913,38.88864278374124 92.89943359506674,37.36659843093481C94.08041619808408,35.94189105967761 137.39482678806138,39.13401989822198 120.10199102775117,40.391205387584264 M60.75403290220622,36.67235374782224L135.41602888395627,44.29429722744704 M129.68391572279535,41.618923703050854L63.66719233136803,39.248722835447204"/><path id="face3" style="fill: orange;" d="M40.470147622750716,159.35488085263904L49.13469549768055,43.236408991837116L165.56192673256442,51.07230586254526L149.6976052411623,159.06233099605447z"/><path id="text_face3" style="fill: none; stroke-width: 2px; stroke: black;" d="M61.296195209064585,141.3273327950435L137.20660208712457,124.36222987854353 M134.82535818932328,141.93283731445968L62.904471589569006,122.91834557679013 M74.7746324185688,99.60584124242004C43.217521791264424,122.53577676519848 96.25901009271959,123.56651130520774 102.45540453529097,109.8918098039006C108.7264711529293,96.05231574234608 158.68413421316438,97.89012832256049 128.86942501849097,119.70706290185757 M65.39086163520986,94.45811130073926C67.97045925331173,64.9309851453579 144.69069503058935,69.13896642159584 140.88296381966876,97.23526953038157L65.39086163520986,94.45811130073926"/></g>
+	
+</svg>

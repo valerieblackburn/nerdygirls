@@ -1,0 +1,294 @@
+html {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    text-align: justify;
+}
+td {
+    border: 1px inset gray;
+}
+p {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px;
+}
+ol, ul {
+    list-style-image: url(../images/bul.gif);
+    padding-left: 10px;
+    margin: 0px;
+}
+ul ul {
+    margin: 6px 0px 0px 0px;
+}
+li {
+    padding: 8px 0px;
+    margin-left: 5px;
+}
+li li {
+    padding: 2px 0px;
+    margin-left: 5px;
+}
+h1 {
+    font-size : xx-large;
+}
+h2 {
+    font-size : x-large;
+}
+h3 {
+    font-size: large;
+    padding: 20px;
+}
+h4 {
+    font-size: large;
+    padding: 30px 10px 10px 10px;
+}
+h5 {
+    font-size: medium;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+code {
+    border: dotted 1px;
+    display: block;
+    overflow: auto;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+}
+table.correspondances td {
+    padding: 2px 5px;
+    width: 50%;
+}
+
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #DCB000;
+}
+a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #9C6300;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #666;
+}
+acronym {
+    border-bottom: 1px dotted;
+}
+
+span.grey {
+    color: #999999;
+}
+span.green {
+    color: #006241;
+}
+
+svg {
+	margin-left: auto;
+	margin-top: auto;
+}
+
+/* specific divs */
+#container {
+    background: transparent url(../images/plafond.png) no-repeat scroll left top;
+    padding: 0px;
+    margin: 0px;
+}
+#___plusone_0 {
+    padding-left: 30px !important;
+}
+
+#intro {
+    margin-left: 250px;
+    margin-right: 280px;
+}
+#demonstration {
+    margin-left: 200px;
+    margin-right: 180px;
+    overflow: auto;
+}
+
+#demonstration textarea {
+    font-size: 11px;
+}
+#demonstration input.convert {
+    padding: 0px;
+    float: left;
+    position: relative;
+    top: 50px;
+}
+#demonstration textarea.left {
+    float: left;
+    width: 40%;
+}
+#demonstration textarea.right {
+    float: right;
+    width: 51%;
+}
+#demonstration textarea.big_right {
+    float: right;
+    width: 58%;
+}
+#demonstration textarea.all {
+    clear: both;
+    width: 99%;
+}
+#demonstration #form {
+    clear: both;
+}
+
+#supportingText {
+    margin-left: 250px;
+    margin-right: 280px;
+    padding-bottom: 20px;
+}
+
+#pageHeader h1 {
+    margin-top: 0px;
+    padding: 140px 10px 70px 10px;
+}
+#pageHeader h2 {
+    margin: 0px;
+    padding: 10px 10px 30px 10px;
+}
+
+#quickSummary {
+    margin: 0px;
+    padding: 20px;
+    text-align: justify;
+}
+#preamble{
+    padding-left: 20px ;
+    padding-right: 20px;
+    padding-bottom: 4px;
+}
+
+#preamble h3, #explanation h3, #participation h3, #benefits h3, #requirements h3{
+    margin: 20px 0px 10px 0px;
+}
+
+#preamble, #explanation, #participation, #benefits, #requirements {
+    padding: 20px;
+}
+
+#supportingText li {
+    padding: 3px 0;
+}
+#explanation {
+    background: transparent url(../images/Disassembled-rubix.jpg) no-repeat scroll center top;
+    padding-top: 130px;
+}
+
+#linkList{
+    position: absolute;
+    top: 280px;
+    left: 0px;
+    padding: 0px;
+    margin-left: 10px;
+    width: 180px;
+}
+#linkList2 {
+    padding-left: 10px;
+}
+#linkList2 a {
+    font-size: 1em;
+}
+#lselect h3 {
+    padding: 0px;
+    margin: 0px;
+    width: 200px;
+    height: 21px;
+    visibility: hidden;
+}
+#lselect a.jsunit_page {
+    display: block;
+    color: #999999;
+    font-size: xx-small;
+    padding-left: 10px;
+    margin-top: -4px;
+    margin-bottom: -25px;
+}
+#lfavorites h3, #larchives h3, #lresources h3{
+    padding: 0px;
+    margin: 0px;
+    width: 200px;
+    height: 21px;
+}
+
+#lhome {
+    padding-top: 5px;
+}
+
+#lresources {
+    padding-top: 20px;
+}
+
+#footer {
+    width: 520px;
+    padding-left: 20px ;
+    padding-right: 20px;
+    padding-bottom: 4px;
+}
+
+#logo {
+    width: 250px; 
+    height: 92px;
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    border: none;
+}
+
+#logo_legend {
+    width: 100px; 
+    height: 16px;
+    top: 243px;
+    left: 40px;
+    position: absolute;
+    border: none;
+    font-size: 10px;
+}
+
+#extraDiv1 {
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    width: 230px;
+    height: 30px;
+}
+#extraDiv2 {
+    position: absolute;
+    top: 265px;
+    right: 0px;
+    width: 180px;
+    height: 90px;
+}
+#extraDiv3 {
+    position: absolute;
+    top: 380px;
+    right: 0px;
+    width: 180px;
+    height: 600px;
+}
+#extraDiv4 {
+    position: absolute;
+    top: 985px;
+    right: 0px;
+    width: 180px;
+    height: 600px;
+}

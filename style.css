@@ -1,0 +1,56 @@
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.color {
+  fill: #00833f; 
+  
+  // stroke: none;
+	// stroke-width: 0;
+  
+  // not sure which of these is correct
+  // stroke-linejoin: butt | round | square;
+  // stroke-linecap: butt | round | square;
+  
+  // stroke-dasharray: 5, 5, 10;
+  
+  // filter: url(#pictureFilter);
+  // mask: url(#f1);
+  // clip-path: url();
+}
+.color:hover {
+  fill: #3daf2c; 
+}
+
+.ground {
+  fill: #787f6a;
+}
+.ground:hover {
+  filter: url(#pictureFilter);
+  fill: #896d3d;
+}
+
+body {
+  padding: 20px;
+}
+
+#sidebar {
+	padding: 10px;
+	margin: 15px;
+	align: right;
+	width: 200px;
+	height: 100%;
+}
+
+.st0{
+	fill:#00833E;
+	}
+	
+.st1{
+	fill:#3FAE2A;
+	}
+	
+.style0{
+	enable-background:	new 0 0 612 792;
+	}
